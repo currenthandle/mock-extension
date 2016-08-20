@@ -27,7 +27,7 @@ app.post('/', function(req, res) {
         }  
     }
     request(options, function(err, resp, body) {
-        if(!err && resp.statusCode=200){
+        if(!err && resp.statusCode===200){
             console.log(body.id)
             res.send('worked')
         }
