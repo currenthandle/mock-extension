@@ -8,7 +8,7 @@ var request = require('request')
 app.use(bodyParser.json())
 
 app.get('/', function(req, res) {
-    res.render('popup')    
+    res.send('works')
 })
 
 app.post('/', function(req, res) {
