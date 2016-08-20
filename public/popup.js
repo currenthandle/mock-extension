@@ -1,21 +1,25 @@
 window.addEventListener('load', function() {
     console.log('window loaded')
     xhr = new XMLHttpRequest();
-    //var url = "https://library.copperstud.io/ingest";
-    var url = '/'
+    var url = "https://library.copperstud.io/ingest";
+    //var url = '/'
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () {
+        console.log('ready state change')
         if (xhr.readyState == 4 && xhr.status == 200) {
             var json = JSON.parse(xhr.responseText);
-            console.log(json.body)
+            console.log(json)
         }
     }
     var data = JSON.stringify({
-        "body" : {
-            "email":"hey@mail.com",
-            "password":"101010"
-        }
+        "src":"fb",
+        "src_id":"1234567",
+        "title": "Title for RHEO",
+        "mood": "spark",
+        "genre": "film,comedy",
+        "people": "johntravolta",
+        "misc": "airplane,wings"
     });
     xhr.send(data);
 })
