@@ -1,3 +1,5 @@
+var port = process.env.PORT || 3000
+
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
@@ -25,10 +27,11 @@ app.post('/', function(req, res) {
         }  
     }
     request(options, function(err, resp, body) {
-        if(!err && resp,statusCode=200){
+        if(!err && resp.statusCode=200){
             console.log(body.id)
+            res.send('worked')
         }
     })
 })
 
-app.listen(3000, function() { console.log('server running on port 3000') })
+app.listen(port, function() { console.log('server running on port', port) })
